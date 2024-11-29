@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    align-items: center;
+}
+
+.header {
+    background-color: #fcf3f3;
+    width: 100%;
+}
+
+.header a {
+    color: rgb(179, 131, 226);
+    color: #8400c0;
+    font-size: 18px;
+}
+
+/* home */
+
+.home {
+    background-color: #e9e7e4;
+    color: #5387b3;
+    position: relative;
+}
+
+.home-icon {
+    width: 300px;
+    height: 300px;
+    background-color: #5387b3;
+    border-radius: 130px 130px 0px 0px;
+    position: relative;
+    margin-right: 40px;
+}
+
+.door {
+    width: 50px;
+    height: 80px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: #e9e7e4;
+    position: absolute;
+    bottom: 0;
+    left: 120px;
+}
+
+.knob {
+    width: 10px;
+    height: 10px;
+    background: #5387b3;
+    border-radius: 100%;
+    position: absolute;
+    top: 35px;
+    left: 4px;
+}
+
+/* ---------------------- */
+
+.home,
+.about,
+.product,
+.contact,
+.error {
+    min-height: 94vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home h1,
+.about h1,
+.product h1,
+.contact h1 {
+    font-size: 100px;
+}
+
+/* about */
+
+.about {
+    background-color: #C9E9D2;
+    color: #FEF9F2;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 140px 0px;
+    background-color: #FEF9F2;
+}
+
+/* product */
+
+.product {
+    background-color: #789DBC;
+    color: #FFE3E3;
+}
+
+/* contact */
+
+.contact {
+    background-color: #fcf3f3;
+    color: #1C6DD0;
+}
+
+.formBox {
+    width: 40%;
+    min-height: 200px;
+    padding: 30px;
+    background-color: #FEE3EC;
+    border-radius: 30px;
+}
+
+.formBox h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.contact-btn {
+    width: 40%;
+}
+
+/* error */
+
+.error {
+    background-color: #58a681;
+}
+
+.error-card {
+    padding: 30px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.error-card .error-card-title,
+.error-card .error-card-text {
+    color: #58a681;
+}
+
+.error-card-link{
+    width: 30%;
+    background-color: white;
+    padding: 7px;
+    margin: 0px auto;
+    cursor: pointer;
+}
+
+.error-card-link:hover{
+    background-color: whitesmoke;
+}
+
+.error-card-link a{
+    text-decoration: none;
+    color: #58a681;
+}
