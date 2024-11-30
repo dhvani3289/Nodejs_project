@@ -6,56 +6,190 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        background: #fff;
+        color: #333;
+        font-family: Lato, sans-serif;
+        background-color: #e4e4e4;
+    }
+
+    section{
+        margin-top: 120px;
+    }
+
+    .container {
+        display: block;
+        width: 400px;
+        margin: 10px auto 100px;
+        background-color: #fff;
+        padding: 0px 10px 10px 10px;
+        border-radius: 10px
+    }
+
+    h2 {
+        text-align: center;
+        padding-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li * {
+        float: left;
+    }
+
+    li,
+    h3 {
+        clear: both;
+        list-style: none;
+    }
+
+    input,
+    button,
+    a {
+        outline: none;
+    }
+
+    button,
+    a {
+        background: none;
+        border: 0px;
+        color: #888;
+        font-size: 15px;
+        width: 60px;
+        margin: 10px 0 0;
+        font-family: Lato, sans-serif;
+        cursor: pointer;
+    }
+
+    /* Heading */
+
+    h3,
+    label[for='new-task'] {
+        color: #333;
+        font-weight: 700;
+        font-size: 15px;
+        border-bottom: 2px solid #333;
+        padding: 20px 0 10px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    input[type="text"] {
+        margin: 0;
+        font-size: 18px;
+        line-height: 18px;
+        height: 18px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 6px;
+        font-family: Lato, sans-serif;
+        color: #888;
+    }
+
+    input[type="text"]:focus {
+        color: #333;
+    }
+
+    /* New Task */
+    label[for='new-task'] {
+        display: block;
+        margin: 0 0 20px;
+    }
+
+    input#new-task {
+        float: left;
+        width: 318px;
+    }
+
+    p>button:hover {
+        color: #0FC57C;
+    }
+
+    /* Task list */
+    li {
+        overflow: hidden;
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    li>input[type="checkbox"] {
+        margin: 0 10px;
+        position: relative;
+        top: 15px;
+    }
+
+    li>label {
+        font-size: 18px;
+        line-height: 40px;
+        width: 237px;
+        padding: 0 0 0 11px;
+    }
+
+    li>input[type="text"] {
+        width: 226px;
+    }
+
+    li>.delete:hover {
+        color: #CF2323;
+    }
+
+    /* Completed */
+    #completed-tasks label {
+        text-decoration: line-through;
+        color: #888;
+    }
+</style>
 
 <body>
 
-    <form action="/" method="post">
-        <input type="text">
-        <button>ADD</button>
-        <br>
-        <input type="checkbox">
-        <label>Pay Bills</label>
-    </form>
-
-
-    <!-- 
+    <section>
     <div class="container">
-        <h2>TO-DO-LIST</h2>
-        <h3>Add Item</h3>
-        <p>
-            <input id="new-task" type="text">
-            <button>Add</button>
-        </p>
+            <h2>TO DO LIST</h2>
+            <h3>Add Item</h3>
 
-        <h3>Todo</h3>
-        <ul id="incomplete-tasks">
-            <li>
-                <input type="checkbox">
-                <label>Pay Bills</label>
-                <input type="text">
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-            </li>
-            <li>
-                <input type="checkbox">
-                <label>Go Shopping</label>
-                <input type="text" value="Go Shopping">
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-            </li>
-        </ul>
+            <form action="/addTask" method="post">
+                <p>
+                    <input id="new-task" type="text" name="task">
+                    <button>Add</button>
+                </p>
+            </form>
 
-        <h3>Completed</h3>
-        <ul id="completed-tasks">
-            <li>
-                <input type="checkbox" checked>
-                <label>See the Doctor</label>
-                <input type="text">
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-            </li>
-        </ul>
-    </div> -->
+            <h3>Todo</h3>
+            <ul id="incomplete-tasks">
+                <% todoList.map((val,id)=>{ %>
+                    <li>
+                        <a href="/completedtask/<%=id%>">⬜️</a>
+                        <label for="jf">
+                            <%= val.task %>
+                        </label>
+                        <a class="delete" href="/deleteTask/<%=id%>">Delete</a>
+                    </li>
+                    <% }) %>
+            </ul>
+
+            <h3>Completed</h3>
+            <ul id="completed-tasks">
+                <% finishedtask.map((val,id)=>{ %>
+                    <li>
+                        <a href="/incompletedtask/<%=id%>">✅</a>
+                        <label>
+                            <%= val.task %>
+                        </label>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+    </section>
 </body>
 
 </html>
