@@ -8,6 +8,6 @@ const bookSchema = mongoose.Schema({
     pages: Number,
     country: String,
     link: String
-})
+}) 
 
 module.exports = mongoose.model('book', bookSchema);
