@@ -23,4 +23,4 @@ const storage = multer.diskStorage({
 });
 
 movieSchema.statics.uploadImage = multer({ storage }).single('image');
-module.exports = mongoose.model('movie', movieSchema);
+module.exports = mongoose.model('movie', movieSchema);  
