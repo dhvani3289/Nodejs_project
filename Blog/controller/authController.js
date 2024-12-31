@@ -49,9 +49,7 @@ exports.signIn = async (req, res) => {
         if (loginAdmin) {
             if (req.body.password === loginAdmin.password) {
                 console.log("Login Successful");
-                // let userLogin = await admin.findById(req.cookies.admin._id);
                 res.cookie("admin", loginAdmin);
-                // return res.redirect("/home", { userLogin });
                 return res.redirect("/home");
             } else {
                 console.log("Password is not mathced...");
