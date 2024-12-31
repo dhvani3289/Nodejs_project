@@ -17,7 +17,11 @@ const blogSchema = mongoose.Schema({
     },
     category: {
         type: String
-    }
+    },
+    loginAdmin: {
+        type: String
+    },
+    author: String
 });
 
 const storage = multer.diskStorage({

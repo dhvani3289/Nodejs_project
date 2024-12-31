@@ -117,7 +117,6 @@
         margin-top: 10px;
     }
 </style>
-
 <body>
     <%- include('header.ejs') %>
         <div class="container">
@@ -135,10 +134,8 @@
                                     </h2>
                                 </div>
                                 <div class="bloggerName">
-                                    - <%=loginAdmin.firstname%>
-                                        <%=loginAdmin.lastname%>
-                                            <br>
-                                            <%=val.blogDate%>
+                                    => <%=val.author%>
+                                        <%=val.blogDate%>
                                 </div>
                                 <div class="blog-description">
                                     <%=val.description%>

@@ -1,6 +1,7 @@
 const blog = require('../model/blogModel');
 const path = require("path")
 const admin = require('../model/adminModel');
+const { log } = require('console');
 
 exports.addBlogPage = async (req, res) => {
     return res.render('addBlog')
@@ -13,6 +14,10 @@ exports.addBlog = async (req, res) => {
             imagePath = `/uploads/blogs/${req.file.filename}`
         }
         req.body.blogImage = imagePath;
+        let fullName = req.cookies.admin.firstname + " " + req.cookies.admin.lastname
+        req.body.author = fullName
+
+        console.log(req.body.author);
 
         let addBlog = await blog.create(req.body);
         if (addBlog) {

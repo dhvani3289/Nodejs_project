@@ -74,6 +74,7 @@ exports.home = async (req, res) => {
         }
         else {
             let loginAdmin = await admin.findById(req.cookies.admin._id);
+            console.log(loginAdmin.firstname);
             let allBlogs = await blog.find();
             return res.render("home", { loginAdmin, allBlogs });
         }
