@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    buthrefn {
+        border: none;
+        background-color: transparent;
+    }
+
+    .header {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .header h2 {
+        margin: 0px;
+        line-height: 30px;
+    }
+
+    .header a {
+        color: white;
+        margin-right: 20px;
+    }
+
+    .categories {
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+
+    .categories:hover {
+        background-color: #eee;
+        color: black;
+        padding: 5px;
+    }
+
+    .userLoggedIn {
+        color: white;
+        margin-right: 20px;
+        text-transform: uppercase;
+    }
+
+    .userLoggedIn:hover {
+        cursor: pointer;
+        color: beige;
+    }
+</style>
+
+<body>
+    <div class='header'>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 40px;">
+            <h2 style="cursor: pointer;">BLOGS</h2>
+            <% const categories=["All","Entertainment", "Food" , "Travel" , "Technology" , "Sports" , "Business"
+                , "Health" , "Science" ].map((val)=> {%>
+                <a href="/home?category=<%=val%>" class="categories">
+                    <%=val%>
+                </a>
+                <%}) %>
+        </div>
+        <div>
+            <a href="/admin/addBlog" class="userLoggedIn">ADD BLOG</a>
+            <span class="userLoggedIn"><b>
+                    Hi,
+                    <%=user.firstname%>
+                        <%=user.lastname%>
+                </b></span>
+            <a href="/logout" class="userLoggedIn">LOGOUT</a>
+        </div>
+    </div>
+</body>
+
+</html>
