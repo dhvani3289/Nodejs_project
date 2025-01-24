@@ -54,14 +54,28 @@
                     <tr>
                         <td>Category</td>
                         <td>
-                            <select name="category" value="<%= editBlog.category %>">
+                            <select name="category">
+                                <option value="entertainment" <%=editBlog.category==='Entertainment' ? 'selected' : ''
+                                    %>>Entertainment</option>
+                                <option value="technology" <%=editBlog.category==='Technology' ? 'selected' : '' %>
+                                    >Technology</option>
+                                <option value="sports" <%=editBlog.category==='Sports' ? 'selected' : '' %>>Sports
+                                </option>
+                                <option value="business" <%=editBlog.category==='Business' ? 'selected' : '' %>>Business
+                                </option>
+                                <option value="health" <%=editBlog.category==='Health' ? 'selected' : '' %>>Health
+                                </option>
+                                <option value="science" <%=editBlog.category==='Science' ? 'selected' : '' %>>Science
+                                </option>
+                            </select>
+                            <!-- <select name="category" value="<%= editBlog.category %>">
                                 <option value="entertainment">Entertainment</option>
                                 <option value="technology">Technology</option>
                                 <option value="sports">Sports</option>
                                 <option value="business">Business</option>
                                 <option value="health">Health</option>
                                 <option value="science">Science</option>
-                            </select>
+                            </select> -->
                         </td>
                     </tr>
                     <tr>

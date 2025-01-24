@@ -1,0 +1,122 @@
+<div id="app">
+    <div id="sidebar" class="active">
+        <div class="sidebar-wrapper active">
+            <div class="sidebar-header">
+                <div class="d-flex justify-content-between">
+                    <div class="logo">
+                        <a href="/"><img src="/assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                    </div>
+                    <div class="toggler">
+                        <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="menu">
+                    <li class="sidebar-title">Menu</li>
+
+                    <li class="sidebar-item active ">
+                        <a href="/index" class='sidebar-link'>
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!--Admin-->
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person-lines-fill"></i>
+                            <span>Admin</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="/index/admin/addAdmin">Add Admin</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="/index/admin/viewAdmin">View Admin</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--Home-->
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Home</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="/">Home</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--Book-->
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-book-half"></i>
+                            <span>Book</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="/index/book/addBookPage">Add Book</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="/index/book/viewBook">View Book</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--Category-->
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-collection-fill"></i>
+                            <span>Category</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="/index/category/addCategory">Add Category</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="/index/category/viewCategory">View Category</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--Sub Category-->
+                    <li class="sidebar-item has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-folder-fill"></i>
+                            <span>Sub Category</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="/index/subcategory/addSubCategory">Add Sub Category</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="/index/subcategory/viewSubCategory">View Sub Category</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--Logout-->
+                    <hr>
+                    <li class="sidebar-item has-sub">
+                        <a href="/auth/logout">
+                            <span>Logout</span>
+                        </a>
+                        <!-- <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="/index/subcategory/addSubCategory">Add Sub Category</a>
+                            </li>
+                            <li class="submenu-item ">
+                                <a href="/index/subcategory/viewSubCategory">View Sub Category</a>
+                            </li>
+                        </ul> -->
+                    </li>
+                </ul>
+            </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+        </div>
+    </div>
+</div>

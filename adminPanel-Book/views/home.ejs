@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card - Mazer Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/x-icon">
+</head>
+<style>
+    .card-image {
+        width: 100%;
+        /* Adjust the card's width as needed */
+        height: 200px;
+        /* Set a fixed height for the image container */
+        overflow: hidden;
+        /* Ensures anything overflowing is hidden */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-image img {
+        width: auto;
+        /* Ensures the image scales proportionally */
+        height: 100%;
+        /* Makes the image fit the container's height */
+        object-fit: cover;
+        /* Ensures the image covers the container without distortion */
+    }
+
+    .space {
+        margin-right: 80px;
+    }
+</style>
+
+<body>
+    <%- include('header.ejs')%>
+        <div style="margin: 50px;">
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="/index">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        <a href="/auth/login">Login</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        <a href="/auth/register">Register</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basic card section start -->
+                <section id="content-types">
+                    <div class="row">
+                        <% allBooks.map((val,index)=>{%>
+                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                <div class="card" style="border: 1px solid rgba(0, 0, 0, .125);">
+                                    <div class="card-content">
+                                        <div class="card-image">
+                                            <img src="<%=val.bookImage%>" class="img-fluid">
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="text-transform: uppercase;">
+                                                <%=val.bookTitle%>
+                                            </h5>
+                                            <p class="card-text">
+                                                Author :
+                                                <%=val.bookAuthor%>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            Language :
+                                            <%=val.bookLanguge%>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="space">
+                                                Pages :
+                                                <%=val.bookPages%>
+                                            </span>
+                                            <span>
+                                                Year of Publishment :
+                                                <%=val.bookYear%>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            Price :
+                                            <%=val.bookPrice%>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <%=val.categoryId.categoryName%> / <%=val.subCategoryId.subCategoryName%>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <%=val.bookStatus%>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <% }) %>
+                    </div>
+                </section>
+                <!-- Basic Card types section end -->
+            </div>
+            <%- include('footer.ejs')%>
+        </div>
+        </div>
+        <script src="/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+        <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

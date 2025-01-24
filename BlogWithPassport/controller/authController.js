@@ -1,19 +1,33 @@
 const admin = require('../model/adminModel');
 const blog = require('../model/blogModel');
 
-// SIGN UP PAGE
-exports.signUpPage = (req, res) => {
-    return res.render('Auth/signUp');
-}
-
-// SIGN IN PAGE
+// LOGIN PAGE
 exports.signInPage = (req, res) => {
+    // req.isAuthenticated()
+    // This checks if the user is already logged in (authenticated).
+    // It is a method provided by Passport.js, which returns true if the user is logged in and false otherwise.
     if (req.isAuthenticated()) {
         return res.render('home');
     }
     else {
         return res.render("Auth/signIn");
     }
+}
+
+// LOGIN
+exports.signIn = async (req, res) => {
+    try {
+        req.flash('success', 'Login Successfully...');
+        return res.redirect("/home");
+    } catch (error) {
+        console.log(error);
+        return res.redirect("/");
+    }
+}
+
+// SIGN UP PAGE
+exports.signUpPage = (req, res) => {
+    return res.render('Auth/signUp');
 }
 
 // SIGN UP 
@@ -46,30 +60,19 @@ exports.signUp = async (req, res) => {
     }
 }
 
-// SIGN IN
-exports.signIn = async (req, res) => {
-    try {
-        return res.redirect("/home");
-    } catch (error) {
-        console.log(error);
-        return res.redirect("/");
-    }
-}
-
 // HOME PAGE
 exports.home = async (req, res) => {
     const category = req.query.category;
-  
-    if (category && category !== "All") { 
-      let allBlogs = await blog.find({ category: category });
-      return res.render('home', { allBlogs, user: req.user });
-    } else { 
-      let allBlogs = await blog.find(); 
-      return res.render('home', { allBlogs, user: req.user });
+    if (category && category !== "All") {
+        let allBlogs = await blog.find({ category: category });
+        return res.render('home', { allBlogs, category });
+    } else {
+        let allBlogs = await blog.find();
+        return res.render('home', { allBlogs });
     }
-  };
+};
 
-// LOGOUT
+
 exports.logout = (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -78,3 +81,27 @@ exports.logout = (req, res) => {
         return res.redirect("/");
     })
 }
+
+// exports.logout = (req, res) => {
+//     if (req.method === 'POST') { // Check if the request method is POST
+//         req.session.destroy((err) => {
+//             if (err) {
+//                 console.log(err);
+//             }
+//             return res.redirect("/");
+//         });
+//     } else {
+//         // Handle invalid request method (e.g., GET)
+//         return res.redirect("/home");
+//     }
+// };
+
+
+// exports.logout = async (req, res) => {
+//     if (req.method === 'get') { // Check if the request method is POST
+//         let allBlogs = await blog.find();
+//         return res.redirect("/home", { allBlogs });
+//     }
+// }
+
+// ------------LOGOUT-------------

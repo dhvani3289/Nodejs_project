@@ -35,16 +35,28 @@ exports.addBlog = async (req, res) => {
 exports.deleteBlog = async (req, res) => {
     try {
         let deleteBlog = await blog.findById(req.params.id);
-        if (deleteBlog) {
-            await blog.findByIdAndDelete(req.params.id);
-            console.log('Blog Deleted Successfully');
-            return res.redirect('/home');
+
+        if (!deleteBlog) {
+            console.log('Blog not found');
+            return res.redirect('back');
         }
+
+        // Delete the blog image if it exists
+        if (deleteBlog.blogImage) {
+            let imagePath = path.join(__dirname, "..", deleteBlog.blogImage);
+            fs.unlinkSync(imagePath);
+            console.log('Blog image deleted successfully');
+        }
+
+        // Delete the blog from the database
+        await blog.findByIdAndDelete(req.params.id);
+        console.log('Blog deleted successfully');
+        return res.redirect('/home');
     } catch (error) {
-        console.log(error);
+        console.error('Error deleting blog:', error);
         return res.redirect('back');
     }
-}
+};
 
 exports.editBlog = async (req, res) => {
     try {
@@ -70,7 +82,7 @@ exports.updateBlog = async (req, res) => {
                 if (imagePath != "") {
                     imagePath = path.join(__dirname, "..", imagePath);
                     try {
-                        await fs.unlinkSync(imagePath);
+                        fs.unlinkSync(imagePath);
                     } catch (error) {
                         console.log("File Is Missing");
                     }
@@ -81,7 +93,7 @@ exports.updateBlog = async (req, res) => {
                 req.body.blogImage = record.blogImage
             }
             await blog.findByIdAndUpdate(req.params.id, req.body, { new: true });
-            console.log("Update Blog Success...");
+            console.log("Updated Blog Successfully...");
             return res.redirect("/home")
         } else {
             console.log("Record not Found...")

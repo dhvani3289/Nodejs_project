@@ -156,49 +156,50 @@
     <%- include('header.ejs') %>
         <div class="container">
             <div class="row">
-                <% allBlogs.map((val,index)=>{%>
-                    <div class="col-4">
-                        <div class="blog-card-wrap">
-                            <div class="blog-img">
-                                <img src="<%=val.blogImage%>" />
+                <%=locals.flash.success%>
+                    <% allBlogs.map((val,index)=>{%>
+                        <div class="col-4">
+                            <div class="blog-card-wrap">
+                                <div class="blog-img">
+                                    <img src="<%=val.blogImage%>" />
+                                </div>
+                                <div class="blog-content">
+                                    <!-- Title -->
+                                    <div class="title">
+                                        <h2>
+                                            <%=val.title%>
+                                        </h2>
+                                    </div>
+
+                                    <div class="authorNameDate">
+                                        <span class="bloggerName">
+                                            <%=val.author%>
+                                        </span>
+                                        <span class="blogDate">
+                                            <%=val.blogDate%>
+                                        </span>
+                                    </div>
+
+                                    <!-- Category -->
+                                    <h3 class="category">
+                                        <%=val.category%>
+                                    </h3>
+
+                                    <!-- Description -->
+                                    <div class="blog-description">
+                                        <%=val.description%>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="actions">
+                                        <a href="/admin/editBlog/<%=val._id%>">Update</a>
+                                        <a href="/admin/deleteBlog/<%=val._id%>">Delete</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="blog-content">
-                                <!-- Title -->
-                                <div class="title">
-                                    <h2>
-                                        <%=val.title%>
-                                    </h2>
-                                </div>
 
-                                <div class="authorNameDate">
-                                    <span class="bloggerName">
-                                        <%=val.author%>
-                                    </span>
-                                    <span class="blogDate">
-                                        <%=val.blogDate%>
-                                    </span>
-                                </div>
-
-                                <!-- Category -->
-                                <h3 class="category">
-                                    <%=val.category%>
-                                </h3>
-
-                                <!-- Description -->
-                                <div class="blog-description">
-                                    <%=val.description%>
-                                </div>
-
-                                <!-- Actions -->
-                                <div class="actions">
-                                    <a href="/admin/editBlog/<%=val._id%>">Update</a>
-                                    <a href="/admin/deleteBlog/<%=val._id%>">Delete</a>
-                                </div>
-                            </div>
                         </div>
-
-                    </div>
-                    <%}) %>
+                        <%}) %>
             </div>
         </div>
 </body>

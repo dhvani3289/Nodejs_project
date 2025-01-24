@@ -14,7 +14,7 @@ blogRoutes.post('/addBlog', blog.uploadImage, addBlog);
 blogRoutes.get('/deleteBlog/:id', deleteBlog);
 
 // EDIT BLOG PAGE
-blogRoutes.get('/editBlog/:id', editBlog);
+blogRoutes.get('/editBlog/:id',passport.validateUser, editBlog);
 
 // UPDATE BLOG
 blogRoutes.post('/updateBlog/:id', blog.uploadImage, updateBlog);
