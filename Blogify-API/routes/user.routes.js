@@ -15,7 +15,6 @@ userRoutes.put('/updateUser/:id', verifyToken, updateUser);
 userRoutes.delete('/deleteUser/:id', verifyToken, deleteUser);
 
 // BLOG 
-
 userRoutes.get('/getAllBlogs', getAllBlogs);
 
 userRoutes.get('/getSingleBlog/:id', verifyToken, getSingleBlog);
@@ -23,6 +22,5 @@ userRoutes.get('/getSingleBlog/:id', verifyToken, getSingleBlog);
 userRoutes.post('/addComment/:id', verifyToken, addComment);
 
 userRoutes.delete('/deleteComment/:id', verifyToken, deleteComment);
-
 
 module.exports = userRoutes;

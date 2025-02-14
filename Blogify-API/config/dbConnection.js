@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const dbConnect = () => {
-    mongoose.connect("mongodb://localhost:27017/blogify-api")
+    mongoose.connect("mongodb+srv://dhvani:Dhvani123@cluster0.pvxyl.mongodb.net/blogify-api")
         .then(() => {
             console.log("Database connected");
         })
